@@ -1,0 +1,27 @@
+use student
+
+Create Table Student(
+Name varchar(20),
+ID int,
+Age int,
+dept varchar(25)
+);
+
+insert into Student values("Rijwana",101,19,"BSc.IT");
+insert into Student values("Viji",102,20,"Bcom");
+insert into Student values("Sarasa",103,21,"BTech.IT");
+insert into Student values("Raji",104,21,"MSc Psychology");
+insert into Student values("Deepa",105,20,"Bsc Biochemistry");
+insert into Student values("Pooja",106,19,"BSc.IT");
+insert into Student values("Suganthi",107,20,"BSc.CS");
+insert into Student values("Farjees",108,21,"Mcom");
+insert into Student values("Moni",109,20,"Bsc Agriculture");
+insert into Student values("Kavi",110,19,"BSc AI");
+
+Select * from Student;
+set SQL_SAFE_UPDATES = 0;
+update Student set Age = 22 where Name = "Pooja";
+
+alter table Student add (mail_id varchar(27));
+delete from Student where Name = "Raji";
+select*from Student where Age > 20;
