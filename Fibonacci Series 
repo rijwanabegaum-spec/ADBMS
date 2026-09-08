@@ -1,0 +1,17 @@
+DECLARE
+first number:=0;
+second number:=1;
+a NUMBER;
+n NUMBER:=6;
+BEGIN
+    DBMS_OUTPUT.PUT_LINE('Series:');
+    DBMS_OUTPUT.PUT_LINE(first);
+    DBMS_OUTPUT.PUT_LINE(second);
+for i IN 2..n
+LOOP
+    a:=first+second;
+    first:=second;
+    second:=a;
+    DBMS_OUTPUT.PUT_LINE(a);
+end loop;
+end;
