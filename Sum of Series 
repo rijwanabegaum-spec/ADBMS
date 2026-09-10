@@ -1,0 +1,23 @@
+CREATE OR REPLACE PROCEDURE sum_of_series (p_n IN NUMBER) IS
+    total NUMBER := 0;
+    i NUMBER;
+
+BEGIN
+
+    IF p_n < 1 THEN
+        DBMS_OUTPUT.PUT_LINE('n must be >= 1');
+        RETURN;
+    END IF;
+
+    FOR i IN 1..p_n LOOP
+        total := total + i;
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('Sum of series 1 to ' || p_n || ' is : ' || total);
+
+END;
+/
+BEGIN
+    sum_of_series(10);
+END;
+/
