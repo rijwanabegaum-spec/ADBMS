@@ -1,0 +1,29 @@
+CREATE table customer
+( id number primary key,
+name varchar2(50),
+age number(3),
+address varchar(20),
+salary number(10));
+ 
+insert into customer values(1000,'Roobani',17,'Perambai',10000);
+insert into customer values(2000,'Sabeetha',17,'Villupuram',20000);
+insert into customer values(3000,'Salim Malik',18,'Chennai',30000);
+insert into customer values(4000,'Santhosh Kumar',18,'Puducherry',9000);
+insert into customer values(6000,'Sathish Kumar',18,'Pondy',10000);
+ 
+select * from customer;
+ 
+-- Implicit Cursor
+DECLARE
+total_rows number;
+BEGIN
+UPDATE customer
+       SET salary = salary + 500;
+       IF sql%notfound THEN
+              dbms_output.put_line('no customers selected');
+       ELSE IF sql%found THEN
+              total_rows := sql%rowcount;
+              dbms_output.put_line( total_rows || ' customers selected ');
+       END IF;
+       END IF;
+END;
