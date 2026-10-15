@@ -1,0 +1,20 @@
+CREATE TABLE tcl_student (
+    sid NUMBER,
+    sname VARCHAR2(20)
+);
+
+INSERT INTO tcl_student VALUES (1, 'Abdul');
+COMMIT;
+
+DELETE FROM tcl_student;
+ROLLBACK;
+
+SELECT * FROM tcl_student;
+
+INSERT INTO tcl_student VALUES (2, 'Amirtha');
+SAVEPOINT sp1;
+
+INSERT INTO tcl_student VALUES (3, 'Antony');
+ROLLBACK TO sp1;
+
+SELECT * FROM tcl_student;
