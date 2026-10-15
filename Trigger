@@ -1,0 +1,30 @@
+SET SERVEROUTPUT ON;
+
+CREATE TABLE voter (
+    vid NUMBER(10),
+    vname VARCHAR2(20),
+    vcity VARCHAR2(20)
+);
+
+INSERT INTO voter VALUES (20001, 'Savitha', 'Pondy');
+INSERT INTO voter VALUES (40001, 'Seran Pandian', 'Villupuram');
+INSERT INTO voter VALUES (20002, 'Shanmugam', 'Chennai');
+INSERT INTO voter VALUES (50005, 'Siddhardhan', 'Puducherry');
+INSERT INTO voter VALUES (50006, 'Sivasankaran', 'Perambai');
+
+CREATE OR REPLACE TRIGGER tdel
+AFTER UPDATE OR DELETE ON voter
+BEGIN
+    IF UPDATING THEN
+        DBMS_OUTPUT.PUT_LINE('Trigger Fired: Record Updated');
+    ELSIF DELETING THEN
+        DBMS_OUTPUT.PUT_LINE('Trigger Fired: Record Deleted');
+    END IF;
+END;
+/
+
+DELETE FROM voter WHERE vid = 20001;
+
+UPDATE voter
+SET vcity = 'Trichy'
+WHERE vid = 50005;
