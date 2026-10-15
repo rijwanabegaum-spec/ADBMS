@@ -1,0 +1,15 @@
+SET SERVEROUTPUT ON;
+
+DECLARE
+    Str VARCHAR2(50) := 'COMPUTER';
+    Rev VARCHAR2(50) := '';
+BEGIN
+    FOR I IN REVERSE 1..LENGTH(Str)
+    LOOP
+        Rev := Rev || SUBSTR(Str, I, 1);
+    END LOOP;
+
+    DBMS_OUTPUT.PUT_LINE('Original String: ' || Str);
+    DBMS_OUTPUT.PUT_LINE('Reversed String: ' || Rev);
+END;
+/
