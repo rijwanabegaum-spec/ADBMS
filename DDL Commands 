@@ -1,0 +1,35 @@
+CREATE TABLE student (
+    sid NUMBER(10),
+    sname VARCHAR2(20),
+    class VARCHAR2(20),
+    address VARCHAR2(20)
+);
+
+DESC student;
+
+INSERT INTO student VALUES
+(1, 'Abdul Nasar', '111-BCA', 'Villupuram');
+
+INSERT INTO student VALUES
+(2, 'Amirthavalli', '111-BCA', 'Chennai');
+
+INSERT INTO student VALUES
+(3, 'Antony Rajan', '111-BCA', 'Puducherry');
+
+INSERT INTO student VALUES
+(4, 'Arangalingam', '111-BCA', 'Karaikal');
+
+INSERT INTO student VALUES
+(5, 'Aravindh', '111-BCA', 'Coimbatore');
+
+SELECT * FROM student;
+
+ALTER TABLE student ADD phno NUMBER(10);
+
+ALTER TABLE student DROP COLUMN class;
+
+RENAME student TO student1;
+
+TRUNCATE TABLE student1;
+
+DROP TABLE student1;
